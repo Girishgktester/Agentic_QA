@@ -1,11 +1,21 @@
 from typing import TypedDict
 
 
+from typing import TypedDict
+
+
 class TestState(TypedDict, total=False):
-    document: str
-    requirements: str
-    test_cases: list[dict]
-    validation_results: list[str]
-    human_feedback: str
-    approved: bool
-    output_path: str
+    input_file: str
+    user_story: str
+    output_file: str
+    analysis: str
+    test_cases: str
+    attempts: int
+    feedback: str
+    decision: str
+    relevancy_score: float
+    relevancy_reason: str
+    relevancy_pass: bool
+    faithfulness_score: float
+    faithfulness_reason: str
+    faithfulness_pass: bool

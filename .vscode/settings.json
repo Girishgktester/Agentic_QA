@@ -1,0 +1,3 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}\\agent_1_testcase_generator\\.venv\\Scripts\\python.exe"
+}

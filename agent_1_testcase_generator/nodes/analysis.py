@@ -1,5 +1,5 @@
-from agent_1_testcase_generator.config.settings import get_llm
-from agent_1_testcase_generator.graph.state import TestState
+from config.settings import get_llm
+from graph.state import TestState
 
 
 def analyze_requirements(state: TestState) -> dict:

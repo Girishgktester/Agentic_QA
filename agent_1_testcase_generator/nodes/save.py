@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from agent_1_testcase_generator.graph.state import TestState
+from graph.state import TestState
 
 def save_test_cases(state: TestState) -> dict:
     output_file = Path(state["output_file"])

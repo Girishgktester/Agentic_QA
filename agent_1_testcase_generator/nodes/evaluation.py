@@ -2,8 +2,8 @@ from deepeval import evaluate
 from deepeval.metrics import AnswerRelevancyMetric, FaithfulnessMetric
 from deepeval.test_case import LLMTestCase
 
-from agent_1_testcase_generator.config.settings import MODEL_NAME
-from agent_1_testcase_generator.graph.state import TestState
+from config.settings import MODEL_NAME
+from graph.state import TestState
 
 def validate_test_cases(state: TestState) -> dict:
     test_case = LLMTestCase(

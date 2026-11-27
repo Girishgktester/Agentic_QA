@@ -1,6 +1,6 @@
-from agent_1_testcase_generator.config.settings import get_llm
-from agent_1_testcase_generator.graph.state import TestState
-from agent_1_testcase_generator.schemas.test_case import TestCases
+from config.settings import get_llm
+from graph.state import TestState
+from schemas.test_case import TestCases
 
 
 def generate_test_cases(state: TestState) -> dict:
@@ -21,7 +21,9 @@ def generate_test_cases(state: TestState) -> dict:
             Requirement analysis:
             {state["analysis"]}
     """
-    response = get_llm().with_structured_output(TestCases).invoke(prompt)
+    response = get_llm().with_structured_output(
+        TestCases, method="function_calling"
+    ).invoke(prompt)
     test_cases_json = response.model_dump_json(indent=2)
     attempts = state.get("attempts", 0) + 1
 

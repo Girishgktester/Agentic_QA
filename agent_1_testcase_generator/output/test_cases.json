@@ -1,0 +1,20 @@
+{
+  "test_cases": [
+    {
+      "test_case_id": "TC001",
+      "title": "Valid Login Credentials Test",
+      "test_data": {
+        "username": "validUser",
+        "password": "validPassword123"
+      },
+      "steps": [
+        "Navigate to the OrangeHRM login page",
+        "Enter 'validUser' in the username field",
+        "Enter 'validPassword123' in the password field",
+        "Click the Login button"
+      ],
+      "expected_result": "User is redirected to the dashboard after successful login.",
+      "actual_result": ""
+    }
+  ]
+}

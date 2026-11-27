@@ -1,0 +1,17 @@
+### User Story: Login Functionality
+
+**As a** user,
+**I want** to log in using my username and password,
+**So that** I can securely access the OrangeHRM application.
+
+**Acceptance Criteria:**
+1. User should be able to enter a username.
+2. User should be able to enter a password.
+3. Clicking the Login button with valid credentials should navigate to the dashboard.
+4. Invalid credentials should display an appropriate error message.
+5. Forgot Password link should navigate to the password reset page.
+
+**Test Credentials:**
+- Username: `Admin`
+- Password: `admin123`
+ - app url : https://opensource-demo.orangehrmlive.com/web/index.php/auth/login

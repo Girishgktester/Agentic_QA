@@ -8,7 +8,7 @@ class TestCase(BaseModel):
     test_data: Dict[str, str]
     steps: List[str]
     expected_result: str
-    actual_result: str = ""
+    actual_result: str
 
 class TestCases(BaseModel):
     test_cases: List[TestCase]

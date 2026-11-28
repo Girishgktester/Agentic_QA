@@ -1,9 +1,9 @@
-from deepeval import evaluate
 from deepeval.metrics import AnswerRelevancyMetric, FaithfulnessMetric
 from deepeval.test_case import LLMTestCase
 
 from config.settings import MODEL_NAME
 from graph.state import TestState
+
 
 def validate_test_cases(state: TestState) -> dict:
     test_case = LLMTestCase(
@@ -12,26 +12,15 @@ def validate_test_cases(state: TestState) -> dict:
         retrieval_context=[state["analysis"]],
     )
 
-    evaluation_result = evaluate(
-        test_cases=[test_case],
-        metrics=[
-            AnswerRelevancyMetric(
-                threshold=0.7, model=MODEL_NAME, include_reason=True
-            ),
-            FaithfulnessMetric(
-                threshold=0.7, model=MODEL_NAME, include_reason=True
-            ),
-        ],
+    relevancy = AnswerRelevancyMetric(
+        threshold=0.7, model=MODEL_NAME, include_reason=True
+    )
+    faithfulness = FaithfulnessMetric(
+        threshold=0.7, model=MODEL_NAME, include_reason=True
     )
 
-    metrics = evaluation_result.test_results[0].metrics_data
-
-    relevancy = next(
-        metric for metric in metrics if "relevancy" in metric.name.lower()
-    )
-    faithfulness = next(
-        metric for metric in metrics if "faithfulness" in metric.name.lower()
-    )
+    relevancy.measure(test_case)
+    faithfulness.measure(test_case)
 
     return {
         "relevancy_score": relevancy.score,
